@@ -105,12 +105,25 @@ class Sentence():
         """
         Returns the set of all cells in self.cells known to be mines.
         """
+        #If all cells in the sentence are mines
+        if len(self.cells) == self.count:
+            return self.cells
+        
+
+        #should i return an empty set if im not certain that the cells are mines?
+        empty_set = {}
+        return empty_set
         raise NotImplementedError
 
     def known_safes(self):
         """
         Returns the set of all cells in self.cells known to be safe.
         """
+        if self.count == 0:
+            return self.cells
+        
+        empty_set = {}
+        return empty_set
         raise NotImplementedError
 
     def mark_mine(self, cell):
@@ -118,6 +131,8 @@ class Sentence():
         Updates internal knowledge representation given the fact that
         a cell is known to be a mine.
         """
+
+
         raise NotImplementedError
 
     def mark_safe(self, cell):
